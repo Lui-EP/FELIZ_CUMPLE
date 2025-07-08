@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Gomis!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460, #533483);
+            background-size: 400% 400%;
+            animation: nightGradient 10s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            color: #fff;
+        }
+
+        @keyframes nightGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px 20px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            max-width: 95%;
+            width: 100%;
+            position: relative;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            top: 0;
+            left: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .title {
+            font-size: 2.5rem;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            margin-bottom: 15px;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+            50% { text-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.6); }
+        }
+
+        .name {
+            font-size: 3.5rem;
+            color: #ff6b9d;
+            font-weight: bold;
+            text-shadow: 0 0 25px rgba(255, 107, 157, 0.6);
+            margin: 20px 0;
+            animation: pulse 2.5s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .age {
+            font-size: 4rem;
+            color: #00d4ff;
+            font-weight: bold;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.7);
+            margin: 25px 0;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .message {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            margin: 25px 0;
+            line-height: 1.6;
+            animation: fadeIn 2s ease-out;
+            text-shadow: 0 0 10px rgba(224, 224, 224, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .cake {
+            font-size: 3rem;
+            margin: 20px 0;
+            animation: bounce 2s infinite ease-in-out;
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .celebration-button {
+            background: linear-gradient(45deg, #ff6b9d, #00d4ff);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.3);
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .celebration-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+        }
+
+        .celebration-button:active {
+            transform: translateY(0);
+        }
+
+        .moon {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2rem;
+            animation: moonGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes moonGlow {
+            0%, 100% { filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3)); }
+            50% { filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.6)); }
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff6b9d;
+            font-size: 1.5rem;
+            animation: floatHeart 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(0px) scale(0.8); opacity: 0.7; }
+            50% { transform: translateY(-30px) scale(1.2); opacity: 1; }
+            100% { transform: translateY(0px) scale(0.8); opacity: 0.7; }
+        }
+
+        .heart:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { top: 30%; right: 15%; animation-delay: 2s; }
+        .heart:nth-child(3) { bottom: 25%; left: 20%; animation-delay: 4s; }
+        .heart:nth-child(4) { bottom: 35%; right: 25%; animation-delay: 6s; }
+
+        .sparkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            top: 0;
+            left: 0;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: sparkle 2s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0% { transform: scale(0) rotate(0deg); opacity: 0; }
+            50% { transform: scale(1) rotate(180deg); opacity: 1; }
+            100% { transform: scale(0) rotate(360deg); opacity: 0; }
+        }
+
+        .firework {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .firework-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        @keyframes fireworkLaunch {
+            0% { 
+                transform: translateY(0px) scale(1);
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(-200px) scale(0.5);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes fireworkExplode {
+            0% { 
+                transform: scale(0);
+                opacity: 1;
+            }
+            20% { 
+                transform: scale(1.2);
+                opacity: 0.9;
+            }
+            100% { 
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        .firework-trail {
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(to top, transparent, #ffd700);
+            animation: trailFade 1s ease-out;
+        }
+
+        @keyframes trailFade {
+            0% { opacity: 1; height: 20px; }
+            100% { opacity: 0; height: 0px; }
+        }
+
+        /* Estilos específicos para móvil */
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px 15px;
+                margin: 10px;
+            }
+
+            .title {
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+
+            .name {
+                font-size: 2.8rem;
+                margin: 15px 0;
+            }
+
+            .age {
+                font-size: 3.2rem;
+                margin: 20px 0;
+            }
+
+            .message {
+                font-size: 1rem;
+                margin: 20px 0;
+                padding: 0 5px;
+            }
+
+            .cake {
+                font-size: 2.5rem;
+                margin: 15px 0;
+            }
+
+            .celebration-button {
+                padding: 10px 20px;
+                font-size: 1.1rem;
+                margin-top: 15px;
+            }
+
+            .moon {
+                font-size: 1.5rem;
+                top: 8px;
+                right: 12px;
+            }
+
+            .heart {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 12px;
+                margin: 5px;
+            }
+
+            .title {
+                font-size: 1.8rem;
+            }
+
+            .name {
+                font-size: 2.4rem;
+            }
+
+            .age {
+                font-size: 2.8rem;
+            }
+
+            .message {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
+            .cake {
+                font-size: 2rem;
+            }
+
+            .celebration-button {
+                padding: 8px 18px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="sparkles" id="sparkles"></div>
+    
+    <div class="container">
+        <div class="moon">🌙</div>
+        <div class="heart">💖</div>
+        <div class="heart">💖</div>
+        <div class="heart">💖</div>
+        <div class="heart">💖</div>
+        
+        <h1 class="title">¡Feliz Cumpleaños!</h1>
+        <h2 class="name">GOMIS</h2>
+        <div class="age">✨ 20 ✨</div>
+        <div class="cake">🎂</div>
+        <p class="message">
+            <br>
+            En esta noche especial, que las estrellas iluminen tu camino hacia un año lleno de sueños cumplidos.
+            <br><br>
+            Gomis, gracias por todos estos años de amistad. Has hecho que cada momento sea más divertido. ¡Feliz cumpleaños! 🎉
+
+        <br> <br>
+        PD: Perdón, pero se me olvidó completamente y ya ni modo. JAJAJAJAJAJAJJAJAJA
+        </p>
+        <button class="celebration-button" onclick="celebrate()">✨ ¡Celebrar! ✨</button>
+    </div>
+
+    <script>
+        // Crear estrellas dinámicamente
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        function createSparkles() {
+            const sparklesContainer = document.getElementById('sparkles');
+            for (let i = 0; i < 15; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 2 + 's';
+                sparklesContainer.appendChild(sparkle);
+            }
+        }
+
+        function celebrate() {
+            // Crear múltiples fuegos artificiales
+            createFireworks();
+            
+            // Crear sparkles adicionales
+            const sparklesContainer = document.getElementById('sparkles');
+            for (let i = 0; i < 30; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.background = getRandomNightColor();
+                sparkle.style.animationDelay = Math.random() * 2 + 's';
+                sparkle.style.animationDuration = '1.5s';
+                sparklesContainer.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 2000);
+            }
+            
+            // Vibración suave si está disponible
+            if ('vibrate' in navigator) {
+                navigator.vibrate([200, 100, 200]);
+            }
+        }
+
+        function createFireworks() {
+            const body = document.body;
+            const fireworksCount = 8;
+            
+            for (let i = 0; i < fireworksCount; i++) {
+                setTimeout(() => {
+                    const startX = Math.random() * window.innerWidth;
+                    const startY = window.innerHeight;
+                    const endX = startX + (Math.random() - 0.5) * 200;
+                    const endY = Math.random() * (window.innerHeight * 0.4) + 100;
+                    
+                    // Crear el cohete
+                    const rocket = document.createElement('div');
+                    rocket.className = 'firework';
+                    rocket.style.left = startX + 'px';
+                    rocket.style.top = startY + 'px';
+                    rocket.style.background = getRandomNightColor();
+                    rocket.style.boxShadow = `0 0 15px ${getRandomNightColor()}`;
+                    body.appendChild(rocket);
+                    
+                    // Crear estela
+                    const trail = document.createElement('div');
+                    trail.className = 'firework-trail';
+                    trail.style.left = startX + 'px';
+                    trail.style.top = startY + 'px';
+                    trail.style.background = `linear-gradient(to top, transparent, ${getRandomNightColor()})`;
+                    body.appendChild(trail);
+                    
+                    // Animar el cohete hacia arriba
+                    rocket.style.transition = 'all 1s ease-out';
+                    rocket.style.transform = `translate(${endX - startX}px, ${endY - startY}px)`;
+                    
+                    // Explotar después de 1 segundo
+                    setTimeout(() => {
+                        rocket.remove();
+                        trail.remove();
+                        explodeFirework(endX, endY);
+                    }, 1000);
+                }, i * 200);
+            }
+        }
+
+        function explodeFirework(x, y) {
+            const particleCount = 25;
+            const colors = getRandomNightColor();
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'firework-particle';
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.background = colors;
+                particle.style.boxShadow = `0 0 10px ${colors}`;
+                document.body.appendChild(particle);
+                
+                const angle = (i / particleCount) * 2 * Math.PI;
+                const distance = Math.random() * 150 + 50;
+                const endX = x + Math.cos(angle) * distance;
+                const endY = y + Math.sin(angle) * distance;
+                
+                // Animar las partículas
+                particle.style.transition = 'all 2s ease-out';
+                particle.style.transform = `translate(${endX - x}px, ${endY - y}px) scale(0)`;
+                particle.style.opacity = '0';
+                
+                // Eliminar partícula después de la animación
+                setTimeout(() => {
+                    particle.remove();
+                }, 2000);
+            }
+            
+            // Crear un flash de luz en el centro
+            const flash = document.createElement('div');
+            flash.style.position = 'absolute';
+            flash.style.left = (x - 50) + 'px';
+            flash.style.top = (y - 50) + 'px';
+            flash.style.width = '100px';
+            flash.style.height = '100px';
+            flash.style.background = `radial-gradient(circle, ${colors} 0%, transparent 70%)`;
+            flash.style.borderRadius = '50%';
+            flash.style.animation = 'fireworkExplode 0.5s ease-out';
+            flash.style.pointerEvents = 'none';
+            document.body.appendChild(flash);
+            
+            setTimeout(() => {
+                flash.remove();
+            }, 500);
+        }
+
+        function getRandomNightColor() {
+            const colors = ['#ffd700', '#ff6b9d', '#00d4ff', '#c39bd3', '#82e0aa', '#f7dc6f'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        // Inicializar al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            createSparkles();
+            
+            // Celebración automática después de 3 segundos
+            setTimeout(() => {
+                celebrate();
+            }, 1000);
+        });
+
+        // Recrear sparkles cada 10 segundos para mantener la animación
+        setInterval(createSparkles, 10000);
+    </script>
+</body>
+</html>
